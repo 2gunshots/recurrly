@@ -71,7 +71,7 @@ const SubscriptionCard = ({
                                     numberOfLines={1}
                                     ellipsizeMode="tail"
                                 >
-                                    {paymentMethod?.trim()}
+                                    {paymentMethod?.trim() ?? "Not Provided"}
                                 </Text>
                             </View>
                         </View>
@@ -83,7 +83,8 @@ const SubscriptionCard = ({
                                     numberOfLines={1}
                                     ellipsizeMode="tail"
                                 >
-                                    {category?.trim() || plan?.trim()}
+                                    {(category?.trim() || plan?.trim()) ??
+                                        "Not Provided"}
                                 </Text>
                             </View>
                         </View>
@@ -95,9 +96,9 @@ const SubscriptionCard = ({
                                     numberOfLines={1}
                                     ellipsizeMode="tail"
                                 >
-                                    {startDate
+                                    {(startDate
                                         ? formatSubscriptionDateTime(startDate)
-                                        : ""}
+                                        : "") ?? "Not Provided"}
                                 </Text>
                             </View>
                         </View>
@@ -109,11 +110,11 @@ const SubscriptionCard = ({
                                     numberOfLines={1}
                                     ellipsizeMode="tail"
                                 >
-                                    {renewalDate
+                                    {(renewalDate
                                         ? formatSubscriptionDateTime(
                                               renewalDate,
                                           )
-                                        : ""}
+                                        : "") ?? "Not Provided"}
                                 </Text>
                             </View>
                         </View>
@@ -125,7 +126,9 @@ const SubscriptionCard = ({
                                     numberOfLines={1}
                                     ellipsizeMode="tail"
                                 >
-                                    {status ? formatStatusLabel(status) : ""}
+                                    {(status
+                                        ? formatStatusLabel(status)
+                                        : "") ?? "Not Provided"}
                                 </Text>
                             </View>
                         </View>
